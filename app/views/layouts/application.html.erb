@@ -31,7 +31,13 @@
           <a class="brand" href="#">Thumbs</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+              <% if current_user %>
+                <li>Welcome, <%= current_user.name %>!</li>
+                <li><%= link_to "Sign Out", signout_path %></li>
+              <% else %>
+                <li><%= link_to "Sign in with Facebook", "/auth/facebook" %></li>
+              <% end %>
+              
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>

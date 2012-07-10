@@ -26,6 +26,7 @@ Thumbs::Application.routes.draw do
   #   end
 
   match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
 
   # Sample resource route with sub-resources:
   #   resources :products do
