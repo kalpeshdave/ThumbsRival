@@ -14,11 +14,23 @@
 ActiveRecord::Schema.define(:version => 20120710103651) do
 
   create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "provider",     :null => false
+    t.string   "uid",          :null => false
+    t.string   "email",        :null => false
+    t.string   "username",     :null => false
+    t.string   "first_name",   :null => false
+    t.string   "last_name",    :null => false
+    t.string   "gender",       :null => false
+    t.string   "nickname",     :null => false
+    t.string   "profile_link", :null => false
+    t.string   "locale"
+    t.string   "timezone"
+    t.string   "image_url",    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end
